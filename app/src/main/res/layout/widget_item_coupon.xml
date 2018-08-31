@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_64"
+    android:id="@+id/widget_row"
+    android:paddingTop="@dimen/padding_4"
+    android:paddingStart="@dimen/padding_16"
+    android:paddingEnd="@dimen/padding_16"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/text_view_merchant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            style="@style/WidgetTextViewTheme"
+            tools:text="Merchant"/>
+
+        <TextView
+            android:id="@+id/text_view_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            style="@style/WidgetTextViewTheme"
+            tools:text="Today"/>
+
+        <TextView
+            android:id="@+id/text_view_coupon_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            style="@style/WidgetTextViewTheme"
+            tools:text="Coupon code"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/text_view_valid_until"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            style="@style/WidgetTextViewTheme"
+            tools:text="Category"/>
+
+        <TextView
+            android:id="@+id/text_view_coupon_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            tools:text="AVAILABLE"/>
+    </LinearLayout>
+
+</LinearLayout>

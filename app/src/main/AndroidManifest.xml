@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mycoupons">
+
+    <!-- permissions -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher_basket"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_launcher_basket"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".activity.CouponListActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.CouponActivity"
+            android:parentActivityName=".activity.CouponListActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.ContainerActivity"
+            android:parentActivityName=".activity.CouponListActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:theme="@style/SettingsTheme"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize">
+            <meta-data android:name="com.google.android.apps.drive.APP_ID" android:value="id=couponstracker"/>
+            <intent-filter>
+                <action android:name="com.google.android.apps.drive.DRIVE_OPEN"/>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!--Coupon data provider-->
+        <provider
+            android:authorities="com.example.mycoupons"
+            android:name=".database.CouponProvider"
+            android:exported="true"/>
+
+        <!--Widget receiver and service-->
+        <receiver
+            android:name=".widget.CouponWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/coupon_widget_provider"/>
+        </receiver>
+
+        <service
+            android:name=".widget.CouponWidgetService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
+
+        <!--
+        Since this receiver will receive a custom action broadcast by the app itself,
+        specifying intent-filter results in a warning that says "Exported receiver does
+        not require permission". Deleting the intent-filter tag removes the warning.
+        Read more here - http://stackoverflow.com/a/16112560/3946664
+        -->
+        <receiver
+            android:name=".receiver.AppWidgetAlarmReceiver"
+            android:enabled="true"/>
+
+        <receiver
+            android:name=".receiver.NotificationAlarmReceiver"
+            android:enabled="true"/>
+
+        <receiver
+            android:name=".receiver.DateTimeChangeReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".receiver.BootReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <!--Google Drive Sync Services-->
+        <service
+            android:name=".sync.ExportToDriveService"
+            android:exported="false"/>
+        <service
+            android:name=".sync.ImportFromDriveService"
+            android:exported="false"/>
+    </application>
+
+</manifest>

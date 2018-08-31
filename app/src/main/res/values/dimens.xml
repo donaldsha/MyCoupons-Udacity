@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- check if tablet -->
+    <bool name="is_tablet">false</bool>
+
+    <!-- dimens added so that we won't need to hardcode them -->
+    <dimen name="height_64">64dp</dimen>
+    <dimen name="padding_16">16dp</dimen>
+    <dimen name="padding_4">4dp</dimen>
+    <dimen name="padding_20">20dp</dimen>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="pic_h_w">20dp</dimen>
+    <dimen name="image_h_w">50dp</dimen>
+</resources>
