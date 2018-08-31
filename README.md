@@ -1,4 +1,8 @@
 # BuiltItBigger-Udacity
+
+Stage 1 implementation is explained in Capstone_stage_1.pdf file. In stage 2 the app is implemented according to this document.
+
+
 Project Overview
 
 In the Capstone project, you will build an app of your own design in two stages. In Stage 1, you will design and plan the app, using a template that we provide in the "Instructions" node.
@@ -20,3 +24,4 @@ An app description
 UI flow mocks, similar to what you've seen in other Nanodegree projects, like the Popular Movies overview
 A list of required tasks that you will complete to build the app, in order
 The Capstone project will give you the experience you need to own the full development of an app. This first stage replicates the design and planning experience that proficient Android Developers are expected to demonstrate.
+
